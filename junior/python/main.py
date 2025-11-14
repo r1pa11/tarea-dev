@@ -6,6 +6,21 @@ def calculate_panels(panel_width: int, panel_height: int,
                     roof_width: int, roof_height: int) -> int:
     
     # Implementa acá tu solución
+    fit_orientation1 = (roof_width // panel_width) * (roof_height // panel_height)
+    fit_orientation2 = (roof_width // panel_height) * (roof_height // panel_width)
+    
+    max_fit_axial = max(fit_orientation1, fit_orientation2)
+
+    if max_fit_axial == 0:
+        return 0
+
+    
+    total_roof_area = roof_width * roof_height
+    total_panel_area = panel_width * panel_height
+
+    count_by_area = total_roof_area // total_panel_area 
+
+    return count_by_area
     
     return 0
 
